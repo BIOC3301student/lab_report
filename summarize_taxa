@@ -14,7 +14,7 @@ source activate qiime1
 export TMPDIR=~/qiime_tmp
 
 #summarize_taxa
-summarize_taxa.py -i ~/split_table/otu_table_D_0__Bacteria_D_1__Planctomycetes.biom -L 3 -o ~/stats/summarize_taxa3
+summarize_taxa.py -i ~/otus3/otu_table.biom -L 2 -o ~/stats/summarize_taxa2
 
 # deactivating environment
 source deactivate
