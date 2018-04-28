@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+module load R
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# compare categories
+compare_categories.py --method adonis -i ~/cdout3/bdiv_even627/unweighted_unifrac_dm.txt -m ~/2018_02_smb/map.tsv -c SamplePhosphorus -o ~/stats/adonis/phos_adonis_out -n 999 
+
+# deactivating environment
+source deactivate
+

@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# core diveristy analysis
+core_diversity_analyses.py --recover_from_failure  -i ~/otus3/otu_table.biom  -o cdout3  -m ~/2018_02_smb/map.tsv -e 627 -t ~/SILVA_128_QIIME_release/trees/97/97_otus.tre
+
+# deactivating environment
+source deactivate
+

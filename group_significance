@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# group_significance
+group_significance.py -i ~/stats/summarize_taxa2/otu_table_L2.biom -m ~/2018_02_smb/map.tsv -c SampleMoisture -o ~/stats/gs_out_m -s kruskal_wallis
+
+# deactivating environment
+source deactivate
+

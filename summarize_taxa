@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+#summarize_taxa
+summarize_taxa.py -i ~/split_table/otu_table_D_0__Bacteria_D_1__Planctomycetes.biom -L 3 -o ~/stats/summarize_taxa3
+
+# deactivating environment
+source deactivate
+
