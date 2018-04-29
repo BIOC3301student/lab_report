@@ -1,0 +1,21 @@
+#!/bin/bash
+BATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+#splitting otu table
+split_otu_table_by_taxonomy.py -i ~/otus3/otu_table.biom -o ~/split_table -L 2
+
+# deactivating environment
+source deactivate
+
