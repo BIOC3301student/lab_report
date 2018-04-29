@@ -10,6 +10,7 @@ Scripts were used in the following order:
   6. compare_categories
   7. summarize_taxa
   8. group_significance
+  9. split_otu
  
 Joined reads
   Uses join_paired_ends.py
@@ -48,3 +49,7 @@ Group significance
   The kruskal wallis method was chosen as it is non-parametric and can be used on more than two groups
   This script was run mutliple times and the category determined by -c was changed to test the significance 
   for several soil properties. 
+  
+Split otu
+  Uses split_otu_table_by_taxonomy.py to obtain OTU tables for each phylum group to be used in summarize taxa
+  
