@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+make_2d_plots.py -i ~/cdout3/bdiv_even627/weighted_unifrac_pc.txt -m ~/2018_02_smb/map.tsv -o ~/SILVA_2d_plots
+
+#deactivating environmemt
+source deactivate
