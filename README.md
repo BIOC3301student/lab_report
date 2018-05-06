@@ -7,9 +7,8 @@ Scripts were used in the following order:
   3. OTU
   4. biom_summary
   5. core_diversity
-  6. 2d_plot
-  
-  7.compare_categories
+  6. 2d_plots
+  7. compare_categories
   8. summarize_taxa
   9. group_significance
   10. split_otu
